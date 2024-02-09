@@ -2,13 +2,13 @@ package com.example.springproject.entity;
 
 import lombok.Data;
 import lombok.Builder;
+import jakarta.persistence.Id;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
-
-import jakarta.persistence.Id;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import jakarta.validation.constraints.NotNull;
+import com.google.gson.annotations.SerializedName;
+import org.hibernate.annotations.UuidGenerator;
 
 
 @Entity
@@ -16,12 +16,23 @@ import jakarta.persistence.GenerationType;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+//@GroupSequence({Department.class, ExcludeIdValidation.class})
 
 public class Department {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long departmentId;
+
+//    @Id @GeneratedValue(generator="system-uuid")
+//    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @Id @UuidGenerator
+    @SerializedName("department_id")
+    private String departmentId;
+
+    @NotNull
+    @SerializedName("department_name")
     private String departmentName;
-    private String departmentAddress;
+
+    @SerializedName("department_code")
     private String departmentCode;
+
+    @SerializedName("department_address")
+    private String departmentAddress;
 }

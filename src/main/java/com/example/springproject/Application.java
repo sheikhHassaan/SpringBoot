@@ -9,12 +9,5 @@ public class Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 		System.out.println("Hello world!");
-
-/*
-		entity -> POJOs
-		repository -> interface that extends JPA repositoryInterface
-		service -> serviceInterface & serviceImpl
-		controller -> APIs
-*/
 	}
 }
