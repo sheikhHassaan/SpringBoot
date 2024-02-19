@@ -1,6 +1,7 @@
 package com.example.springproject.service;
 
 import com.example.springproject.entity.Department;
+
 import java.util.List;
 
 public interface DepartmentService {
